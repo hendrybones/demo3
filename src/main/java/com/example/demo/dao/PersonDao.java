@@ -7,8 +7,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface PersonDao {
-    int insertPerson(UUID id, Person person);
-    default  int insertPerson(Person person){
+    //all operations performed in a database
+    int insertPerson(UUID id, Person person);// insert a person with a given id
+
+    default  int insertPerson(Person person){//insert a person with a random generated id
         UUID id=UUID.randomUUID();
         return  insertPerson(id,person);
     }
